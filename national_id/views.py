@@ -10,3 +10,4 @@ class NationalIdViewSet(viewsets.ModelViewSet):
     """
     queryset = NationalId.objects.all()
     serializer_class = NationalIdSerializer
+    http_method_names = ['get', 'post', ]
