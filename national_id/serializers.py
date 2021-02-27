@@ -5,6 +5,8 @@ from django.core.validators import MaxValueValidator
 from rest_framework import serializers
 
 from national_id.models import NationalId
+from national_id.validators import NationalIdValidator
+from national_id.governorate_list import GOVERNORATES
 
 
 class NationalIdSerializer(serializers.ModelSerializer):
@@ -14,6 +16,7 @@ class NationalIdSerializer(serializers.ModelSerializer):
 
     national_id = serializers.IntegerField(
         validators=[
+            NationalIdValidator(),
             MaxValueValidator(99999999999999),
         ]
     )
